@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        overflow: hidden; /* 🔒 يمنع أي scroll */
+      }
+
+      .custom-navbar {
+        background-color: #080844 !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        position: sticky;
+        top: 0;
+        z-index: 11111;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand {
+        color: #ffffff !important;
+        font-weight: 700;
+        font-size: 1.3rem;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-link {
+        color: #ffffff !important;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #b0b0ff !important;
+        transform: translateY(-1px);
+      }
+
+      .add-btn {
+        background-color: #ffffff !important;
+        color: #080844 !important;
+        font-weight: 600;
+        border-radius: 50px;
+        padding: 6px 16px;
+        transition: all 0.3s ease;
+        margin-left: 8px;
+      }
+
+      .add-btn:hover {
+        background-color: #e8e8ff !important;
+        color: #04042b !important;
+        transform: scale(1.05);
+      }
+
+      .container {
+        width: 100%;
+        height: 100vh;
+      }
+
+      .iframe-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; /* نفس ارتفاع الفوتر */
+        overflow: hidden;
+      }
+
+      .airtable-embed {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background-color: #001f3f;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    </style>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">Zuccess Dashboard</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Items</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link add-btn" href="form.html">+ Add</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="iframe-container">
+        <iframe
+          class="airtable-embed"
+          src="https://airtable.com/embed/apprK8Nz1bS9a80dm/pagF0U3Mo6PJ4Jl9S/form"
+        ></iframe>
+      </div>
+
+      <div class="footer">Zuccess</div>
+    </div>
+  </body>
+</html>
