@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Zuccess Dashboard</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <style>
       html,
       body {
@@ -12,16 +18,18 @@
         height: 100%;
         width: 100%;
         font-family: Arial, sans-serif;
-        overflow: hidden; /* 🔒 يمنع أي scroll */
+        overflow: hidden; /* prevent scroll */
       }
 
+      /* Navbar */
       .custom-navbar {
         background-color: #080844 !important;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 11111;
-        transition: all 0.3s ease;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
       }
 
       .navbar-brand {
@@ -42,34 +50,53 @@
         transform: translateY(-1px);
       }
 
-      .add-btn {
+      .nav-item .nav-link.border {
+        border-color: #ffffff !important;
+        color: #ffffff !important;
+      }
+
+      .nav-item .nav-link.border:hover {
         background-color: #ffffff !important;
         color: #080844 !important;
-        font-weight: 600;
-        border-radius: 50px;
-        padding: 6px 16px;
-        transition: all 0.3s ease;
-        margin-left: 8px;
       }
 
-      .add-btn:hover {
-        background-color: #e8e8ff !important;
-        color: #04042b !important;
-        transform: scale(1.05);
+      /* Hamburger icon white */
+      .navbar-toggler {
+        border: none;
       }
 
-      .container {
-        width: 100%;
-        height: 100vh;
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+
+      .collapse.show {
+        background-color: #080844;
+        padding: 10px;
+      }
+
+      /* Align menu start on mobile */
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          justify-content: flex-start !important;
+          text-align: left;
+        }
+
+        .navbar-nav {
+          width: 100%;
+          align-items: flex-start !important;
+        }
+
+        .nav-item {
+          margin-bottom: 8px;
+        }
       }
 
       .iframe-container {
         position: absolute;
-        top: 0;
+        top: 0; /* below navbar */
         left: 0;
         right: 0;
-        bottom: 0; /* نفس ارتفاع الفوتر */
-        overflow: hidden;
+        bottom: 30px; /* above footer */
       }
 
       .airtable-embed {
@@ -94,13 +121,10 @@
         font-weight: bold;
       }
     </style>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
   </head>
+
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg custom-navbar">
       <div class="container-fluid px-4">
         <a class="navbar-brand" href="index.html">Zuccess Dashboard</a>
@@ -118,26 +142,29 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-center">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Items</a>
+              <a class="nav-link" href="index.html">ITEMS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link add-btn" href="form.html">+ Add</a>
+              <a class="nav-link border rounded px-3" href="form.html">ADD</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="container">
-      <div class="iframe-container">
-        <iframe
-          class="airtable-embed"
-          src="https://airtable.com/embed/apprK8Nz1bS9a80dm/pagF0U3Mo6PJ4Jl9S/form"
-        ></iframe>
-      </div>
 
-      <div class="footer">Zuccess</div>
+    <!-- Content -->
+    <div class="iframe-container">
+      <iframe
+        class="airtable-embed"
+        src="https://airtable.com/embed/apprK8Nz1bS9a80dm/pagF0U3Mo6PJ4Jl9S/form"
+      ></iframe>
     </div>
+
+    <!-- Footer -->
+    <div class="footer">Zuccess</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
