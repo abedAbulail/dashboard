@@ -18,7 +18,7 @@
         padding: 0;
         height: 100%;
         width: 100%;
-        overflow: hidden; /* 🔒 يمنع أي scroll */
+        overflow: hidden; /* prevent scroll */
         font-family: "Segoe UI", Arial, sans-serif;
         background-color: #f8f9fa;
       }
@@ -31,7 +31,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 9999; /* 🔒 لضمان الظهور فوق كل شيء */
+        z-index: 9999;
         transition: all 0.3s ease;
       }
 
@@ -69,18 +69,48 @@
         transform: scale(1.05);
       }
 
+      /* Make hamburger white */
+      .navbar-toggler {
+        border: none;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+
+      .collapse.show {
+        background-color: #080844; /* same color when opened on small screen */
+        padding: 10px;
+      }
+
+      /* align nav links to start on mobile */
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          justify-content: flex-start !important;
+          text-align: left;
+        }
+
+        .navbar-nav {
+          width: 100%;
+          align-items: flex-start !important;
+        }
+
+        .nav-item {
+          margin-bottom: 8px;
+        }
+      }
+
       .container {
         width: 100%;
         height: 100vh;
       }
 
-      /* iframe section below navbar and above footer */
       .iframe-container {
         position: absolute;
-        top: 60px; /* ارتفاع النافبار */
+        top: 60px; /* below navbar */
         left: 0;
         right: 0;
-        bottom: 0; /* ارتفاع الفوتر */
+        bottom: 0; /* above footer */
         overflow: hidden;
       }
 
@@ -90,13 +120,12 @@
         border: none;
       }
 
-      /* Footer */
       .footer {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 50px;
+        height: 30px;
         background-color: #001f3f;
         color: white;
         display: flex;
@@ -129,12 +158,12 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-center">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Items</a>
+              <a class="nav-link" href="index.html">ITEMS</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link add-btn" href="form.html">+ Add</a>
+            <li class="nav-item text-dark">
+              <a class="nav-link border rounded px-3" href="form.html">ADD</a>
             </li>
           </ul>
         </div>
